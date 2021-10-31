@@ -4,7 +4,7 @@ Repository for backend project "Chessboard Importer". The project is realized by
 
 ---
 ## Application Demo - Youtube 
-[![Application Demo](https://i.imgur.com/HZFBZeI.png)](https://www.youtube.com/watch?v=HXiuUF98saY)
+[![Application Demo](https://i.imgur.com/Le2E452.png)](https://www.youtube.com/watch?v=HXiuUF98saY)
 
 ## Linter usage
 
