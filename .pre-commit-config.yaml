@@ -1,0 +1,47 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: forbid-new-submodules
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+  - repo: https://github.com/pycqa/pylint
+    rev: pylint-2.6.0
+    hooks:
+      - id: pylint
+        args: [
+          --disable=missing-docstring,
+          --disable=empty-docstring,
+          --max-line-length=85,
+          --disable=missing-function-docstring,
+          --disable=import-error,
+          --disable=unused-argument,
+          --disable=too-few-public-methods,
+          --disable=inconsistent-return-statements,
+          --disable=invalid-name,
+          --disable=undefined-variable,
+          --disable=global-statement,
+          --disable=wildcard-import,
+          --disable=redefined-outer-name,
+          --disable=superfluous-parens,
+          --disable=unused-variable,
+          --disable=too-many-locals,
+          --disable=global-variable-undefined,
+          --disable=multiple-statements,
+          --disable=too-many-branches,
+          --disable=too-many-statements,
+          --disable=consider-using-enumerate,
+          --disable=duplicate-code,
+          --disable=bare-except,
+          ]
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: '2.1.4'
+    hooks:
+      - id: script-must-have-extension
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.12
+    hooks:
+      - id: shellcheck

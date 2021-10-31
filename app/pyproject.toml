@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["kajetan <kajetanzdanowicz@wp.pl>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.63.0"
+pydantic = "^1.8.1"
+Pillow = "^8.1.2"
+image = "^1.5.33"
+python-multipart = "^0.0.5"
+fastapi-limiter = "^0.1.2"
+redis = "^3.5.3"
+multipart = "^0.2.4"
+passlib = "^1.7.4"
+bcrypt = "^3.2.0"
+fastapi-jwt-auth = "^0.5.0"
+collections-extended = "^1.0.3"
+more-itertools = "^8.7.0"
+python-math = "^0.0.1"
+pyclipper = "^1.2.1"
+matplotlib = "^3.4.1"
+opencv-python = "^4.5.1"
+scikit-learn = "^0.24.1"
+keras-models = "^0.0.7"
+sklearn = "^0.0"
+keras-adabound = "^0.6.0"
+keras = "^2.4.3"
+lab = "^6.3"
+numpy = "1.19.2"
+tensorflow = "^2.4.1"
+chess = "^1.5.0"
+gunicorn = "^20.1.0"
+uvicorn = "^0.14.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

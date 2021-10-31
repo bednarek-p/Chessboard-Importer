@@ -1,0 +1,52 @@
+stages:
+  - verify
+  - build
+  - test
+
+services:
+  - docker:dind
+
+check-pre-commit-hooks:
+  image:
+    name: calthorpeanalytics/pre-commit
+    entrypoint: [""]
+  stage: verify
+  script:
+    - gem install chef-utils -v 16.6.14 # required for markdownlint
+    - pre-commit install
+    - pre-commit run --all-files
+  tags:
+    - docker
+  only:
+    refs: [merge_requests]
+
+build:
+  image: docker/compose:latest
+  stage: build
+  before_script:
+    - docker --version
+    - docker-compose --version
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  script:
+    - cd app
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  tags:
+    - docker
+  only:
+    - master
+
+test:
+  image: docker/compose:latest
+  stage: test
+  before_script:
+    - docker --version
+    - docker-compose --version
+  script:
+    - docker-compose build
+  tags:
+    - docker
+  only:
+    refs: [merge_requests]

@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+ ch_importer_back:
+  build: ./app
+  container_name: ch_importer_back
+  command: gunicorn main:app --bind 0.0.0.0:80 -k uvicorn.workers.UvicornWorker --timeout 90
+  expose:
+    - 80
+  restart: always
+  labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.fastapi.rule=Host(`chessboard-importer.networkedassets.net`)"
+    - "traefik.http.routers.fastapi.tls=true"
+    - "traefik.http.routers.fastapi.tls.certresolver=letsencrypt"
+  depends_on:
+    - traefik
+    - redis
+  environment:
+    - SECRET=${SECRET}
+
+ traefik:
+    image: traefik:v2.2
+    container_name: traefik
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "$PWD/traefik.dev.toml:/etc/traefik/traefik.toml"
+
+ redis:
+  container_name: redis
+  restart: always
+  image: "redis:alpine"
