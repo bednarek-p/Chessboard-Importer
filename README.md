@@ -3,6 +3,8 @@
 Repository for backend project "Chessboard Importer". The project is realized by the team of 4 students of Control Engineering and Robotics on specialization Information Technologies in Control Engineering as part of the Team Project Conference on Faculty of Electronics for the Company NetworkedAssets. Application was written in FastAPI framework used to recognize images taken with a mobile application. The machine learning models for the recognition pieces of chess were written using Keras and OpenCV libraries. The frontend of the application was written in Kotlin as a mobile application. To read more about the frontend part of the project visit the [frontend application repository](https://gitlab.com/kpz-2021-chessboard-importer-team/chessboard-importer-mobile). For more information visit the [wiki page](https://gitlab.com/kpz-2021-chessboard-importer-team/chessboard-importer-backend/-/wikis/home).
 
 ---
+## Application Demo - Youtube 
+[![Application Demo](https://i.imgur.com/HZFBZeI.png)](https://www.youtube.com/watch?v=HXiuUF98saY)
 
 ## Linter usage
 
